@@ -22,4 +22,4 @@ Finally run the `main.py` script:
 
 ```sh
 python main.py
-```# -cognito-client-credentials
+```
