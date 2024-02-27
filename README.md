@@ -10,6 +10,7 @@ COGNITO_USER_POOL_CLIENT_ID=<your-client-id>
 COGNITO_USER_POOL_CLIENT_SECRET=<your-client-secret>
 COGNITO_OAUTH2_TOKEN_URL=https://yourdomain.us-west-2.amazoncognito.com/oauth2/token
 COGNITO_REGION=us-west-2
+COGNITO_JWKS_URL=https://cognito-idp.${COGNITO_REGION}.amazonaws.com/${COGNITO_USER_POOL_ID}/.well-known/jwks.json
 ```
 
 Then install modules:
