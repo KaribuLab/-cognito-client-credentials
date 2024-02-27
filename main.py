@@ -6,12 +6,12 @@ import json
 
 load_dotenv()
 
+cognito_jwks_url = os.environ["COGNITO_JWKS_URL"]
+
 
 def __get_public_keys():
     public_keys = {}
-    response = requests.get(
-        f"https://cognito-idp.{os.environ['COGNITO_REGION']}.amazonaws.com/{os.environ['COGNITO_USER_POOL_ID']}/.well-known/jwks.json"
-    )
+    response = requests.get(cognito_jwks_url)
     if response.status_code == 200:
         jwks = response.json()
         for jwk in jwks["keys"]:
@@ -51,6 +51,7 @@ def main():
         access_token = data["access_token"]
         jwt_payload = __jwt_decode(access_token, public_keys)
         print(jwt_payload)
+
 
 if __name__ == "__main__":
     main()
